@@ -1,14 +1,14 @@
 spring:
-  #使用Thymeleaf模板引擎
+  #使锟斤拷Thymeleaf模锟斤拷锟斤拷锟斤拷
   thymeleaf:
     mode: HTML5
     encoding: UTF-8
-    cache: false  #使用Thymeleaf模板引擎，关闭缓存
+    cache: false  #使锟斤拷Thymeleaf模锟斤拷锟斤拷锟芥，锟截闭伙拷锟斤拷
     servlet:
       content-type: text/html
-  # JPA数据库连接信息
+  # JPA锟斤拷锟捷匡拷锟斤拷锟斤拷锟斤拷息
   datasource:
-    url: jdbc:mysql://localhost:3306/shiro?useSSL=false&amp
+    url: jdbc:mysql://localhost:3306/springboot-integration-example?useSSL=false&amp
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
@@ -18,7 +18,7 @@ spring:
     open-in-view: true
     properties:
       hibernate:
-        enable_lazy_load_no_trans: true #使用延时加载时控制Session的生命周期
+        enable_lazy_load_no_trans: true #使锟斤拷锟斤拷时锟斤拷锟斤拷时锟斤拷锟斤拷Session锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
         dialect: org.hibernate.dialect.MySQL5Dialect
         ddl-auto: update
 server:
