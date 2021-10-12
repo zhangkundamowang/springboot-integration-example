@@ -1,0 +1,31 @@
+
+server:
+  port: 8094
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/springboot-integration-example?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: mybatis
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.zk.mybatis.entity
+
+#pagehelper\u5206\u9875\u63D2\u4EF6
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+#showSql
+logging:
+  level:
+    com:
+      zk:
+        mybatis:
+          mapper : debug

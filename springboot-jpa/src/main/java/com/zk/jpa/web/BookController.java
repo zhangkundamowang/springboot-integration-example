@@ -29,7 +29,9 @@ public class BookController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String getBookList(ModelMap map) {
-        map.addAttribute("bookList",bookService.findAll());
+        //通过ModelMap传递数据
+        map.addAttribute("bookList", bookService.findAll());
+        //逻辑视图名为BOOK_LIST_PATH_NAME
         return BOOK_LIST_PATH_NAME;
     }
 
