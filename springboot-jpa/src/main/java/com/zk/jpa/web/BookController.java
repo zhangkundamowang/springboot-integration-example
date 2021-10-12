@@ -3,12 +3,12 @@ package com.zk.jpa.web;
 import com.zk.jpa.entity.Book;
 import com.zk.jpa.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import javax.websocket.server.PathParam;
 
 /**
  * Book 控制层
@@ -80,6 +80,19 @@ public class BookController {
     public String deleteBook(@PathVariable Integer id) {
         bookService.delete(id);
         return REDIRECT_TO_BOOK_URL;
+    }
+
+    /**
+     * 分页
+     */
+    @ResponseBody
+    @GetMapping("/selectBookByPage")
+    public Page<Book> selectBookByPage(@PathParam("book") Book book,
+                                       @PathParam("currentPage") Integer currentPage,
+                                       @PathParam("pageSize") Integer pageSize) {
+        // 同步前端传回的当前页参数
+        currentPage = currentPage - 1;
+        return bookService.selectBookByPage(book, currentPage, pageSize);
     }
 
 }

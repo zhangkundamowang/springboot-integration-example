@@ -1,12 +1,13 @@
 package com.zk.jpa.service;
 
 import com.zk.jpa.entity.Book;
+import org.springframework.data.domain.Page;
+
 import java.util.List;
 
 /**
  * Book 业务接口层
  *
- * Created by bysocket on 30/09/2017.
  */
 public interface BookService {
     /**
@@ -33,4 +34,7 @@ public interface BookService {
      * 获取 Book
      */
     Book findById(Integer id);
+
+    Page<Book> selectBookByPage(Book book, Integer currentPage,Integer pageSize);
+
 }

@@ -1,9 +1,6 @@
 package com.zk.jpa.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -12,6 +9,7 @@ import java.io.Serializable;
  * Created by bysocket on 30/09/2017.
  */
 @Entity
+@Table(name = "book")
 public class Book implements Serializable {
 
     /**
