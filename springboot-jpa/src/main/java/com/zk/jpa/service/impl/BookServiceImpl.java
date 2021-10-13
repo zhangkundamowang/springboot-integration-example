@@ -58,7 +58,7 @@ public class BookServiceImpl implements BookService {
             @Override
             public Predicate toPredicate(Root<Book> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 Predicate predicate1 = criteriaBuilder.like(root.get("name").as(String.class), "%" + book.getName() + "%");
-                Predicate predicate2 = criteriaBuilder.like(root.get("writer").as(String.class), "%" + book.getWriter() + "%");
+                Predicate predicate2 = criteriaBuilder.equal(root.get("writer").as(String.class), book.getWriter());
                 Predicate finalPredicate = criteriaBuilder.and(predicate1, predicate2);
                 return finalPredicate;
             }
