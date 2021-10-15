@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS `car`;
+CREATE TABLE `car` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(255) DEFAULT NULL COMMENT '名称',
+  `price` int(11) DEFAULT NULL COMMENT '价格',
+  `colour` varchar(255) DEFAULT NULL COMMENT '颜色',
+  `brand` varchar(255) DEFAULT NULL COMMENT '品牌',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='汽车';
+LOCK TABLES `car` WRITE;
+INSERT INTO `car` VALUES (1,'东风',150,'黑色','东风'),(2,'丰田',100,'白色','丰田'),(3,'本田',120,'蓝色','本田'),(4,'东风',150,'黑色','东风'),(5,'丰田',100,'白色','丰田'),(6,'本田',120,'蓝色','本田'),(7,'东风',150,'黑色','东风');
+UNLOCK TABLES;
