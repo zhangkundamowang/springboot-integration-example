@@ -4,6 +4,7 @@ import com.zk.shiro.dao.UserDao;
 import com.zk.shiro.entity.PermissionInfo;
 import com.zk.shiro.entity.RoleInfo;
 import com.zk.shiro.entity.UserInfo;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -62,6 +63,12 @@ public class ShiroRealm extends AuthorizingRealm
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException
     {
+        //直接获取用户信息
+        //UserInfo userInfo0=(UserInfo)SecurityUtils.getSubject().getPrincipal();
+        //获取用户的输入的账号
+        //UsernamePasswordToken usernamePasswordToken=(UsernamePasswordToken)token ;
+        //String userName=usernamePasswordToken.getUsername();
+
         //获取用户的输入的账号
         String userName = (String) token.getPrincipal();
 
