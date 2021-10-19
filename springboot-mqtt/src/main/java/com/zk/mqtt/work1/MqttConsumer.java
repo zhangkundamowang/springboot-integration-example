@@ -1,4 +1,4 @@
-package com.zk.mqtt;
+package com.zk.mqtt.work1;
 
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
@@ -17,9 +17,10 @@ public class MqttConsumer implements ApplicationRunner {
     // 默认的消息推送主题，实际可在调用接口时指定
     private static String MQTT_TOPIC = "topic";
     // 服务器连接地址，如果有多个，用逗号隔开
-    private static String MQTT_HOST = "tcp://127.0.0.1:1883";
+    private static String MQTT_HOST = "tcp://114.215.138.22:1883";
+    //private static String MQTT_HOST = "tcp://127.0.0.1:1883";
     // 连接服务器默认客户端ID
-    private static String MQTT_CLIENT_ID = "da37dfe14f274f558d793cc55de0f00f";
+    private static String MQTT_CLIENT_ID = "client_id_zk";
     // 用户名
     private static String MQTT_USER_NAME = "";
     // 密码
