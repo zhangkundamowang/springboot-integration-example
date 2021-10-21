@@ -44,7 +44,7 @@ public class QuartzConfig {
 
         return TriggerBuilder.newTrigger()
                 .forJob(myJobDetail())
-                .withIdentity("myJobTrigger")
+                .withIdentity("simpleQuartzTask2")
                 .withSchedule(scheduleBuilder)
                 .build();
     }
