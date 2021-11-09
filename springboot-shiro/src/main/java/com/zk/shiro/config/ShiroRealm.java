@@ -4,7 +4,6 @@ import com.zk.shiro.dao.UserDao;
 import com.zk.shiro.entity.PermissionInfo;
 import com.zk.shiro.entity.RoleInfo;
 import com.zk.shiro.entity.UserInfo;
-import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;

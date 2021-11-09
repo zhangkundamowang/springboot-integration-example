@@ -2,7 +2,6 @@ package com.zk.shiro.controller;
 
 import com.zk.shiro.entity.UserInfo;
 import org.apache.shiro.SecurityUtils;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
