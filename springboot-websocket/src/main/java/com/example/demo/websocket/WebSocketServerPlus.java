@@ -22,11 +22,11 @@ import cn.hutool.log.LogFactory;
 /**
  * 优化后的WebSocketServer
  */
-@ServerEndpoint("/imserver/{userId}")
+@ServerEndpoint("/socketServer/{userId}")
 @Component
-public class ImController {
+public class WebSocketServerPlus {
 
-    static Log log=LogFactory.get(ImController.class);
+    static Log log=LogFactory.get(WebSocketServerPlus.class);
     //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
     private static int onlineCount = 0;
     //旧：concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
@@ -34,7 +34,7 @@ public class ImController {
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
     //新：使用map对象，便于根据userId来获取对应的WebSocket
-    private static ConcurrentHashMap<String,ImController> websocketList = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<String, WebSocketServerPlus> websocketList = new ConcurrentHashMap<>();
     //接收sid
     private String userId="";
     /**
@@ -86,7 +86,7 @@ public class ImController {
                     object.put("fromUserId",this.userId);
                     //传送给对应用户的websocket
                     if(StringUtils.isNotBlank(toUserId)&&StringUtils.isNotBlank(contentText)){
-                        ImController socketx=websocketList.get(toUserId);
+                        WebSocketServerPlus socketx=websocketList.get(toUserId);
                         //需要进行转换，userId
                         if(socketx!=null){
                             socketx.sendMessage(JSON.toJSONString(ApiReturnUtil.success(object)));
@@ -143,11 +143,11 @@ public class ImController {
     }
 
     public static synchronized void addOnlineCount() {
-        ImController.onlineCount++;
+        WebSocketServerPlus.onlineCount++;
     }
 
     public static synchronized void subOnlineCount() {
-        ImController.onlineCount--;
+        WebSocketServerPlus.onlineCount--;
     }
 }
 

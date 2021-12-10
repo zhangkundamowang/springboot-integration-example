@@ -27,8 +27,9 @@ public class DemoController {
 
     @RequestMapping("/push/{toUserId}")
     public ResponseEntity<String> pushToWeb(String message, @PathVariable String toUserId) throws IOException {
+        message="测试在代码中推送webSocket消息";
         WebSocketServer.sendInfo(message,toUserId);
-        return ResponseEntity.ok("MSG SEND SUCCESS");
+        return ResponseEntity.ok("message send SUCCESS");
     }
 }
 
