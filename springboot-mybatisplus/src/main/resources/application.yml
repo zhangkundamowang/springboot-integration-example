@@ -2,5 +2,5 @@ spring:
   profiles:
     active: dev
 
-logging:
-  config: classpath:loggback.xml
+#logging:
+#  config: classpath:loggback.xml

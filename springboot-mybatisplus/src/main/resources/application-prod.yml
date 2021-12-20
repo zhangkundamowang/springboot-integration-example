@@ -22,7 +22,7 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     auto-mapping-behavior: full
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath:com/zk/mybatisplus/**/*Mapper.xml
+  mapper-locations: classpath:com/baba/mybatisplus/**/*Mapper.xml
 
 openHttps: close #关闭https
 
