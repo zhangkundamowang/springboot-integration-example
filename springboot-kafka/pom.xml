@@ -5,23 +5,25 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.1</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.5.6</version>
+        <relativePath/> <!-- 版本为2.6.1时集成swagger2.9.2报错 -->
     </parent>
+
     <groupId>com.zk</groupId>
     <artifactId>kafka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>kafka</name>
     <description>Demo project for Spring Boot</description>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
@@ -60,12 +62,10 @@
         <!--<artifactId>springfox-swagger-ui</artifactId>-->
         <!--<version>2.9.2</version>-->
         <!--</dependency>-->
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
@@ -81,5 +81,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
