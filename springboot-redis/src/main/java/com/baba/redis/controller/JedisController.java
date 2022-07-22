@@ -15,7 +15,9 @@ public class JedisController {
 
     @Before
     public void setUp() {
-        jedis = new Jedis("127.0.0.1", 6379);
+        jedis = new Jedis("192.168.56.3", 6379,0);
+        jedis.auth("root");
+        System.out.println(jedis.ping());
     }
 
     /**
@@ -36,6 +38,8 @@ public class JedisController {
         //进行加1操作
         jedis.incr("age");
         System.out.println(jedis.get("name") + "-" + jedis.get("age") + "-" + jedis.get("qq"));
+        //关闭jedis
+        jedis.close();
     }
 
     /**
