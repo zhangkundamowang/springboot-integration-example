@@ -18,6 +18,7 @@ public class MyByteToLongDecoder extends ByteToMessageDecoder {
      */
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+        System.out.println("MyByteToLongDecoder decoder 被调用");
         // long 类型 为 8 字节
         if (in.readableBytes() >= 8) {
             out.add(in.readLong());

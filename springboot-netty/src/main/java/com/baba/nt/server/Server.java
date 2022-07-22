@@ -16,8 +16,8 @@ public class Server {
                     .group(boss, work)
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new MyServerChannelInitializer());
-            ChannelFuture future = serverBootstrap.bind(8004).sync();
-            System.out.println("server started and listen " + 8004);
+            ChannelFuture future = serverBootstrap.bind(8888).sync();
+            System.out.println("server started and listen " + 8888);
             future.channel().closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();
