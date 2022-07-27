@@ -22,7 +22,7 @@ public class RedisController {
     @RequestMapping(value = "/redisTest", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public void redisTest() {
         //原始方法  利用redisTemplate对象操作
-        // redisTemplate.opsForValue().set("myKey", "myValue", 5, TimeUnit.SECONDS);
+        //redisTemplate.opsForValue().set("myKey", "myValue", 5, TimeUnit.SECONDS);
         // String myKey = redisTemplate.opsForValue().get("myKey");
 
         //redis中新增10秒后过期的key  用于测试监听key过期

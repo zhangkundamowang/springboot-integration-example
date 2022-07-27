@@ -15,13 +15,13 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 public final class RedisUtil {
 
     //Redis服务器IP
-    private static String ADDR = "127.0.0.1";
+    private static String ADDR = "192.168.56.3";
 
     //Redis的端口号
     private static int PORT = 6379;
 
     //访问密码
-    private static String AUTH = "";
+    private static String AUTH = "root";
 
     //可用连接实例的最大数目，默认值为8；
     //如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。

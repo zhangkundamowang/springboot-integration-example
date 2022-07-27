@@ -7,9 +7,9 @@ public class JedisYanZhengMa {
 
     public static void main(String[] args) {
         //模拟验证码发送
-         verifyCode("18056250973");
+         //verifyCode("18056250974");
         //校验
-         //checkCode("18056250973","036263");
+         checkCode("18056250974","240436");
 
 
     }

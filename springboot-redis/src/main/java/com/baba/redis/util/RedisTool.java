@@ -6,7 +6,8 @@ import redis.clients.jedis.Jedis;
 import java.util.Collections;
 
 /**
- * https://www.jb51.net/article/162146.htm
+ * https://www.jb51.net/article/162146.html
+ * 分布式锁
  */
 
 public class RedisTool {

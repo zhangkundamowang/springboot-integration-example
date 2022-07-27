@@ -4,12 +4,14 @@ import com.baba.redis.util.RedisUtil;
 import org.junit.Before;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class JedisController {
+public class JedisFiveType {
 
     private Jedis jedis;
 
@@ -147,5 +149,56 @@ public class JedisController {
         System.out.println(RedisUtil.getStr("UtilTest"));
     }
 
+    /**
+     * Redis事务
+     */
+    @Test
+    public void testTransaction(){
+            int balance;                //可用余额
+            int debt;                   //欠费
+            int amtToSubtract = 10;     //实刷额度
+
+            jedis.watch("balance");
+            balance = Integer.parseInt(jedis.get("balance"));
+            //如果可用余额小于实刷额度
+            if (balance < amtToSubtract) {
+                jedis.unwatch();
+            } else {
+                System.out.println("******开启事务******");
+                Transaction transaction=jedis.multi();
+                transaction.decrBy("balance",amtToSubtract);
+                transaction.incrBy("debt",amtToSubtract);
+                transaction.exec();
+                balance = Integer.parseInt(jedis.get("balance"));
+                debt = Integer.parseInt(jedis.get("debt"));
+
+                System.out.println("可用余额" + balance);
+                System.out.println("欠费" + debt);
+            }
+        }
+
+    @Test
+    public void testTransactionException() {
+        try {
+            Transaction transaction = jedis.multi();
+            transaction.lpush("key", "11");
+            transaction.lpush("key", "22");
+            int a = 6 / 0;
+            transaction.lpush("key", "33");
+            List<Object> list = transaction.exec();
+            System.out.println(jedis.lrange("key",0,-1));
+        } catch (Exception e) {
+            System.out.println("异常=====");
+        }
+    }
+
+    @Test
+    public void testMiaoShaException() {
+        try {
+
+        } catch (Exception e) {
+            System.out.println("异常=====");
+        }
+    }
 
 }
